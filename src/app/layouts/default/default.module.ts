@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatDividerModule, MatSidenavModule } from '@angular/material';
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
@@ -18,8 +19,7 @@ import { MatDividerModule, MatSidenavModule } from '@angular/material';
     CommonModule,
     RouterModule,
     SharedModule,
-    MatSidenavModule,
-    MatDividerModule
+    MaterialModule
   ]
 })
 export class DefaultModule { }

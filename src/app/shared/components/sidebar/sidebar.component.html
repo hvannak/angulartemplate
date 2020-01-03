@@ -1,32 +1,59 @@
 <mat-nav-list>
     <div class="profile-card">
         <div class="header">
-            <h2>Soufiane FADIL</h2>
-            <h4>example@email.com</h4>
+            <h2>Vannak Heng</h2>
+            <h4>vannak2010@gmail.com</h4>
         </div>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+        <mat-icon class="matimg">account_circle</mat-icon>
     </div>
-
     <mat-divider></mat-divider>
-
-    <h2 matSubheader>Pages</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Posts</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
-
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            Pages
+        </mat-expansion-panel-header>
+        <mat-divider></mat-divider>
+        <mat-list dense>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Posts</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a></mat-list-item>
+        </mat-list>    
+    </mat-expansion-panel>
     <mat-divider></mat-divider>
-
-    <h2 matSubheader>Tools</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>import_contacts</mat-icon>
-        Contacts
-    </a>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>contact_phone</mat-icon>
-        Leads
-    </a>
-
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            Setting
+        </mat-expansion-panel-header> 
+        <mat-divider></mat-divider>   
+        <mat-list dense>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Posts</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a></mat-list-item>
+        </mat-list>   
+    </mat-expansion-panel>
+    <mat-divider></mat-divider>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            Tools
+        </mat-expansion-panel-header>
+        <mat-divider></mat-divider>
+        <mat-list dense>
+            <mat-list-item>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+                    <mat-icon>import_contacts</mat-icon>
+                    Contacts
+                </a>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+                    <mat-icon>contact_phone</mat-icon>
+                    Leads
+                </a>
+            </mat-list-item>
+        </mat-list>       
+    </mat-expansion-panel>
 </mat-nav-list>

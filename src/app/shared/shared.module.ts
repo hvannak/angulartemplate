@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MatDividerModule,MatToolbarModule,MatButtonModule, MatIconModule, MatMenuModule, MatListModule } from "@angular/material";
+import { MatDividerModule,MatToolbarModule,MatButtonModule, MatIconModule, MatMenuModule, MatListModule, MatExpansionModule } from "@angular/material";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -16,13 +17,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    MatDividerModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatMenuModule,
-    MatListModule,
+    MaterialModule,
+    FlexLayoutModule,  
     RouterModule,
   ],
   exports: [
