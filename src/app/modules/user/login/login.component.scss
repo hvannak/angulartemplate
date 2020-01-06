@@ -1,0 +1,56 @@
+
+.flexcontainer {
+    display: flex;
+    flex-basis: 10%;
+    height: 100%;
+}
+
+.flexcontainer > div {
+    border: 1px #cccccc solid;
+    padding: 10px;
+}
+
+.box-1 {
+    flex: 3;
+    align-items: flex-end;
+}
+
+.box-2 {
+    flex:1;
+}
+
+:host {
+    .mat-icon {
+      vertical-align: middle;
+      margin-right: 20px;
+    }
+    .profile-card {
+      text-align: center;
+      padding: 0 20px 20px 20px;
+      .matimg {
+        width: 150px;
+        height: 150px;
+        font-size: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  .container {
+    max-width: 960px;
+  }
+  
+  .pricing-header {
+    max-width: 700px;
+  }
+  
+  .card-deck .card {
+    min-width: 220px;
+  }

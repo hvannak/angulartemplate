@@ -9,7 +9,6 @@ import { MatDividerModule, MatSidenavModule } from '@angular/material';
 import { MaterialModule } from 'src/app/material/material.module';
 import { RolesautherizedComponent } from 'src/app/modules/rolesautherized/rolesautherized.component';
 import { LoginComponent } from 'src/app/modules/user/login/login.component';
-import { UserComponent } from 'src/app/modules/user/user.component';
 
 
 @NgModule({
@@ -19,7 +18,6 @@ import { UserComponent } from 'src/app/modules/user/user.component';
     PostsComponent,
     RolesautherizedComponent,
     LoginComponent,
-    UserComponent,
   ],
   imports: [
     CommonModule,
