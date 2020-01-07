@@ -1,7 +1,6 @@
 
 .flexcontainer {
     display: flex;
-    flex-basis: 10%;
     height: 100%;
 }
 
@@ -12,7 +11,6 @@
 
 .box-1 {
     flex: 3;
-    align-items: flex-end;
 }
 
 .box-2 {
@@ -47,7 +45,7 @@
     max-width: 960px;
   }
   
-  .pricing-header {
+  .company-header {
     max-width: 700px;
   }
   

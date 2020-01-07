@@ -6,14 +6,16 @@ import { PostsComponent } from './modules/posts/posts.component';
 import { RolesautherizedComponent } from './modules/rolesautherized/rolesautherized.component';
 import { AuthGuard } from './modules/auth/auth.guard';
 import { LoginComponent } from './modules/user/login/login.component';
+import { RegisterComponent } from './modules/user/register/register.component';
 
 
 const routes: Routes = [{
   path:'',
-  component:DefaultComponent,canActivate:[AuthGuard],
+  component:DefaultComponent,
   children: [{
     path:'',
-    component:DashboardComponent
+    component:DashboardComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'posts',
@@ -26,7 +28,12 @@ const routes: Routes = [{
 },
 {
   path:'login',
-  component:LoginComponent,
+  component:LoginComponent
+},
+{
+  path:'register',
+  component:RegisterComponent,
+  canActivate:[AuthGuard]
 }];
 
 @NgModule({

@@ -9,6 +9,8 @@ import { MatDividerModule, MatSidenavModule } from '@angular/material';
 import { MaterialModule } from 'src/app/material/material.module';
 import { RolesautherizedComponent } from 'src/app/modules/rolesautherized/rolesautherized.component';
 import { LoginComponent } from 'src/app/modules/user/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from 'src/app/modules/user/register/register.component';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { LoginComponent } from 'src/app/modules/user/login/login.component';
     PostsComponent,
     RolesautherizedComponent,
     LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class DefaultModule { }

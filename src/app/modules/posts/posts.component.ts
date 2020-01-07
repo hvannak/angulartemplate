@@ -12,4 +12,8 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
   }
 
+  signout(){
+    localStorage.removeItem('token');
+  }
+
 }

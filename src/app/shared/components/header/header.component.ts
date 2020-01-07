@@ -23,4 +23,8 @@ export class HeaderComponent implements OnInit {
     }, 300);
   }
 
+  // signout() {
+  //   localStorage.removeItem('token');
+  //   this.router.navigate(['/login']);
+  // }
 }
