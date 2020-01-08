@@ -13,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from 'src/app/modules/user/register/register.component';
 import { CompanyinfoComponent } from 'src/app/modules/companyinfo/companyinfo.component';
 
-
 @NgModule({
   declarations: [
     DefaultComponent,
