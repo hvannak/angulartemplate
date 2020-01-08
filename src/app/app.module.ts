@@ -8,7 +8,8 @@ import { DefaultModule } from './layouts/default/default.module';
 import { SharedService } from './shared/shared.service';
 import { UserService } from './shared/services/user.service';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './modules/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,11 @@ import { HttpClientModule } from '@angular/common/http';
     ToastrModule.forRoot(),
     DefaultModule
   ],
-  providers: [SharedService,UserService],
+  providers: [SharedService,UserService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

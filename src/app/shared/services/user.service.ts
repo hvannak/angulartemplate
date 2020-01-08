@@ -29,4 +29,8 @@ export class UserService {
           console.log(err);
     })
   }
+
+  getprofile(){
+    return this.shared.getAllData('/UserProfile');
+  }
 }

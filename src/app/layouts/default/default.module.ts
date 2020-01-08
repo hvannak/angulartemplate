@@ -11,6 +11,7 @@ import { RolesautherizedComponent } from 'src/app/modules/rolesautherized/rolesa
 import { LoginComponent } from 'src/app/modules/user/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from 'src/app/modules/user/register/register.component';
+import { CompanyinfoComponent } from 'src/app/modules/companyinfo/companyinfo.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RegisterComponent } from 'src/app/modules/user/register/register.compon
     PostsComponent,
     RolesautherizedComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CompanyinfoComponent
   ],
   imports: [
     CommonModule,

@@ -13,13 +13,22 @@ export class AuthGuard implements CanActivate {
   canActivate(
       next: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): boolean {
+        console.log(state.url);
       if (localStorage.getItem('token') != null){
+        if(state.url == '/login') {
+          this.router.navigate(['/']);
+          return false;
+        }
         return true;
       }
       else {
-          console.log(state.url);
-          this.router.navigate(['/login']);
-          return false;
+          if(state.url == '/login' || state.url == '/register'){
+            return true;
+          }
+          else {
+            this.router.navigate(['/companyinfo']);
+            return false;
+          }
         }
     }
   

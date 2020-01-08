@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:UserService) { }
 
   ngOnInit() {
   }
 
-  signout(){
-    localStorage.removeItem('token');
+  Test(){
+    this.service.getprofile().then(res => {
+      console.log(res);
+    })
   }
 
 }

@@ -1,8 +1,8 @@
 <mat-nav-list>
     <div class="profile-card">
-        <div class="header">
-            <h2>Vannak Heng</h2>
-            <h4>vannak2010@gmail.com</h4>
+        <div class="header" *ngIf="profile">
+            <h3>{{profile.UserName}}</h3>
+            <h5>{{profile.FullName}}</h5>
         </div>
         <mat-icon class="matimg">account_circle</mat-icon>
     </div>

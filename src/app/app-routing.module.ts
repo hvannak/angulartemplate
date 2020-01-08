@@ -7,11 +7,13 @@ import { RolesautherizedComponent } from './modules/rolesautherized/rolesautheri
 import { AuthGuard } from './modules/auth/auth.guard';
 import { LoginComponent } from './modules/user/login/login.component';
 import { RegisterComponent } from './modules/user/register/register.component';
+import { CompanyinfoComponent } from './modules/companyinfo/companyinfo.component';
 
 
 const routes: Routes = [{
   path:'',
   component:DefaultComponent,
+  canActivate:[AuthGuard],
   children: [{
     path:'',
     component:DashboardComponent,
@@ -19,21 +21,27 @@ const routes: Routes = [{
   },
   {
     path: 'posts',
-    component: PostsComponent
+    component: PostsComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'autherize',
-    component: RolesautherizedComponent
+    component: RolesautherizedComponent,
+    canActivate:[AuthGuard]
   }]
 },
 {
+  path:'companyinfo',
+  component:CompanyinfoComponent
+},
+{
   path:'login',
-  component:LoginComponent
+  component:LoginComponent,
+  canActivate:[AuthGuard]
 },
 {
   path:'register',
-  component:RegisterComponent,
-  canActivate:[AuthGuard]
+  component:RegisterComponent
 }];
 
 @NgModule({
