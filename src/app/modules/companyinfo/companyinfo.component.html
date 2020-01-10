@@ -3,7 +3,7 @@
     <p>Animals Specialist In Cambodia</p> 
   </div>
 
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark sticky-top justify-content-center">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="#about">ABOUT</a>
@@ -18,16 +18,57 @@
   </nav>
   
   <div class="container-fluid">
-    <div class="about" id="about">
-        <p>About Company</p>
+    <div class="about" id="about" @fade>
+      <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-12 px-0">
+          <h1 class="display-4 font-italic">About Agri Master</h1>
+          <p class="lead my-3">
+           Founded in 2004 as part of the Medivet Group, Agrimaster is one of Cambodia’s leading animal feed and nutrition company whose mission is to improve the health and performance of farmers, distributors and communities all over Cambodia. Agrimaster produces a range of high quality animal feed for swine, chicken, laying duck, and quail. Agrimaster is committed to continuous improvement. In 2013 Agrimaster invested in a new animal feed factory 30km out of Phnom Penh. This new factory is equipped with the latest modern facilities and is capable of supplying enough feed to meet the demands of farmers and distributors across Cambodia. In 2008 Agrimaster began investing in high grade chicken breeding farms and hatcheries and is now a fully integrated poultry producers which is involved in breeding, processing, marketing and distribution of broiler, native and layer chicken products. OUR GOAL Our products are produced at the highest standards and distributed all over cambodia. Our highly trained and experienced team of veterinarians provide technical support to farms and communities in both rural and urban areas in Cambodia. Together with farmers, distributors and local communities, we are committed to helping local farmers and business reach their full potential and prosper by raising healthy animals
+          </p>
+        </div>
+      </div> 
+      <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-12 px-0">
+          <h1 class="display-4 font-italic">About Medivet </h1>
+          <p class="lead my-3">
+            MEDIVET Co., LTD is Sole Proprietorship and has become a leading company in Cambodia for providing animal health service since 1997. MEDIVET Co., LTD has more than 100 depots and experienced-technical service officers in order to bring Product and Service with high quality to meet customers' satisfaction to contribute in animal raising system in Cambodia. MEDIVET Co., LTD has authorized to import and distribute of MERIAL Co., LTD in Cambodia in 1998.     
+            MERIAL Co., LTD is the famous pharmaceutical and vaccine company in the world to develop and share new technological solution in Animal Health. MERIAL Co., LTD has many high-educated scientists in researching, developing and producing to provide the Market with new, safety, effective, and efficient pharmaceutical and vaccine in order to develop animal health and boost animal growth with better achievement.
+          </p>
+        </div>
+      </div> 
     </div>
-    <div class="portfolio" id="portfolio">
-        <p>Portfolio Company</p>
+    <div class="portfolio" id="portfolio" @fade>
+      <div class="row">
+        <div class="col-md-12">
+          <img [src]="imageUrl" class="img-fluid w-100" alt="Responsive image">
+        </div>
     </div>
-    <div class="contact" id="contact">
-        <p>Contact Company</p>
+    <div class="row">
+      <div class="col-md-4" data-aos="fade-left" data-aos-duration="4000">
+        <img [src]="imageUrlsample" alt="..." class="img-fluid w-100">
+      </div>
+      <div class="col-md-4" data-aos="fade-right" data-aos-duration="4000">
+        <img [src]="imageUrlsample" alt="..." class="img-fluid w-100">
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-duration="4000">
+        <img [src]="imageUrlsample" alt="..." class="img-fluid w-100">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" data-aos="fade-left" data-aos-duration="4000">
+        <img [src]="imageUrlsample" alt="..." class="img-fluid w-100">
+      </div>
+      <div class="col-md-6" data-aos="fade-right" data-aos-duration="4000">
+        <img [src]="imageUrlsample" alt="..." class="img-fluid w-100">
+      </div>
+    </div>
+    <div class="contact" id="contact" @fade>
+      <div #mapContainer id="map"></div>
+    </div>
     </div>
   </div>
   <div class="jumbotron text-center">
-    <p>Footer</p>
+    <p>&copy; MEDIVETGROUP</p>
+    <p>E-mail: medivet@online.com.kh</p>
+    <p>Phone/Mobile (885) 23 883 483/23 880 070</p>
   </div>
