@@ -3,16 +3,16 @@
     <p>Animals Specialist In Cambodia</p> 
   </div>
 
-  <nav class="navbar navbar-expand-sm bg-light navbar-dark sticky-top justify-content-center">
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark justify-content-center" id="sticktop">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#about">ABOUT</a>
+        <a class="nav-link" (click)="gotAnchor('about')">ABOUT</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#portfolio">PORTFOLIO</a>
+        <a class="nav-link" (click)="gotAnchor('portfolio')">PORTFOLIO</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#contact">CONTACTS</a>
+        <a class="nav-link" (click)="gotAnchor('contact')">CONTACTS</a>
       </li>
     </ul>
   </nav>
@@ -39,7 +39,7 @@
     </div>
     <div class="portfolio" id="portfolio" @fade>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
           <img [src]="imageUrl" class="img-fluid w-100" alt="Responsive image">
         </div>
     </div>
@@ -62,9 +62,9 @@
         <img [src]="imageUrlsample" alt="..." class="img-fluid w-100">
       </div>
     </div>
+    </div>
     <div class="contact" id="contact" @fade>
       <div #mapContainer id="map"></div>
-    </div>
     </div>
   </div>
   <div class="jumbotron text-center">

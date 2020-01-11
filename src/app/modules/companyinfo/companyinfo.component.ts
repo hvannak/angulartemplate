@@ -1,6 +1,7 @@
-import { Component, OnInit,AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewChild, ElementRef, HostListener, Inject } from '@angular/core';
 import * as AOS from 'aos';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { ViewportScroller, DOCUMENT } from '@angular/common';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CompanyinfoComponent implements OnInit,AfterViewInit {
   lat = 11.559118;
   lng = 104.872602;
   coordinates = new google.maps.LatLng(this.lat, this.lng);
-  constructor() { }
+  constructor(private viewportScroller: ViewportScroller,@Inject(DOCUMENT) document) { }
 
   ngOnInit() {
     AOS.init();   
@@ -50,6 +51,19 @@ export class CompanyinfoComponent implements OnInit,AfterViewInit {
     map: this.map,
   });
 
+  gotAnchor(anchor:string): void {
+    this.viewportScroller.scrollToAnchor(anchor);   
+  }
 
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e) {
+     if (window.pageYOffset > 165) {
+      let element = document.getElementById('sticktop');
+      element.classList.add('sticky');
+     } else {
+      let element = document.getElementById('sticktop');
+        element.classList.remove('sticky'); 
+     }
+  }
 
 }
