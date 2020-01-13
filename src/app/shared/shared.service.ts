@@ -16,11 +16,19 @@ export class SharedService {
   }
 
   putData(formdata,url:string,key:string) {
-    return this.http.put(environment.apiURL + '/' + url + "/" + key,formdata);
+    return this.http.put(environment.apiURL + '/' + url + "/" + key,formdata).toPromise();
+  }
+
+  putData2(formdata,url:string,key1:string,key2:string) {
+    return this.http.put(environment.apiURL + '/' + url + "/" + key1 + "/" + key2,formdata).toPromise();
   }
 
   deleteData(url:string,id:string){
     return this.http.delete(environment.apiURL + '/' + url + '/' + id).toPromise();
+  }
+
+  deleteData2(url:string,id1:string,id2:string){
+    return this.http.delete(environment.apiURL + '/' + url + '/' + id1 + "/" + id2).toPromise();
   }
 
   getDataById(url:string,id:string){
