@@ -38,4 +38,12 @@ export class SharedService {
   getAllData(url:string){
     return this.http.get(environment.apiURL + '/' + url).toPromise();
   }
+
+  getDataByTwoParam(url:string,key1:string,key2:string){
+    return this.http.get(environment.apiURL + '/' + url + '/' + key1 + '/' + key2).toPromise();
+  }
+
+  getDataByThreeParam(url:string,key1:string,key2:string,key3:string){
+    return this.http.get(environment.apiURL + '/' + url + '/' + key1 + '/' + key2 + '/' + key3).toPromise();
+  }
 }

@@ -34,6 +34,7 @@ export class UserAccessComponent implements OnInit {
       Roles:item.Roles
     });
     this.service.rolesAdded = item.Roles;
+    console.log(this.service.rolesAdded);
     this.service.userroleModel.get('UserName').disable();
   }
 

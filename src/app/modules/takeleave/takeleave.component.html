@@ -1,0 +1,132 @@
+<div class="jumbotron">
+    <h1 class="display-4 text-center">Employe Leave Register</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+                <div class="form-group">
+                    <input hidden class="form-control" formControlName="LeaveID">
+                </div>
+                <div class="form-group required">
+                    <label>Employee Name</label>
+                    <input class="form-control" formControlName="EmployeeName" disabled=true>
+                    <label class="text-danger"
+                        *ngIf="service.formModel.get('EmployeeName').touched && service.formModel.get('EmployeeName').errors?.required">This
+                        field is mandatory.</label>
+                </div>
+                <div class="form-group required">
+                    <label>Workplace</label>
+                    <input class="form-control" formControlName="WorkPlace">
+                    <label class="text-danger"
+                        *ngIf="service.formModel.get('WorkPlace').touched && service.formModel.get('WorkPlace').errors?.required">This
+                        field is mandatory.</label>
+                </div>
+                <div class="form-group required">
+                    <label>Reasion</label>
+                    <!-- <input class="form-control" formControlName="Reasion"> -->
+                    <textarea class="form-control" formControlName="Reasion" rows="3"></textarea>
+                    <label class="text-danger"
+                        *ngIf="service.formModel.get('Reasion').touched && service.formModel.get('Reasion').errors?.required">This
+                        field is mandatory.</label>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="FromDate" matInput [matDatepicker]="myDatepicker1"
+                            required placeholder="Start date">
+                        <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+                        <mat-datepicker #myDatepicker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="ToDate" matInput [matDatepicker]="myDatepicker2"
+                            required placeholder="End date">
+                        <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+                        <mat-datepicker #myDatepicker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-lg btn-block"
+                            [disabled]="!service.formModel.valid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <div class="mat-elevation-z8">
+                <mat-card>
+                    <form class="form-group" #form="ngForm" (submit)="onSearch()">
+                        <div class="form-row">
+                            <mat-form-field>
+                                <input name="fromdate" [(ngModel)]="fromdate" matInput
+                                    [matDatepicker]="myDatepicker3" required placeholder="Start date">
+                                <mat-datepicker-toggle matSuffix [for]="myDatepicker1">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #myDatepicker3></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input name="todate" [(ngModel)]="todate" matInput
+                                    [matDatepicker]="myDatepicker4" required placeholder="End date">
+                                <mat-datepicker-toggle matSuffix [for]="myDatepicker2">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #myDatepicker4></mat-datepicker>
+                            </mat-form-field>
+    
+                            <div class="form-group col-md-3">
+                                <select class="form-control" name="userId" [(ngModel)]="userId" required>
+                                    <option value="*">ALL</option>
+                                    <option *ngFor="let user of userList" value="{{user.FullName}}">
+                                        {{user.FullName}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" [disabled]="form.invalid" class="btn btn-light">Load...</button>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card>
+                  
+                <table class="table table-hover" mat-table [dataSource]="service.leaveList" matSort>
+                    <ng-container matColumnDef="EmployeeName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)">
+                            {{element.EmployeeName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="WorkPlace">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Workplace </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)"> {{element.WorkPlace}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="FromDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> From Date </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)">
+                            {{element.FromDate | date}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ToDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> To Date </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)">
+                            {{element.ToDate | date}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Reasion">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Reasion </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)"> {{element.Reasion}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Delete">
+                        <th mat-header-cell *matHeaderCellDef>
+    
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <i class="fa fa-trash-alt fa-lg text-danger" (click)="onLeaveDelete(element.LeaveID)"></i>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[25, 100]"></mat-paginator>
+            </div>
+        </div>       
+    </div>
+</div>

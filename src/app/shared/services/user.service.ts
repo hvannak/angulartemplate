@@ -82,7 +82,7 @@ export class UserService {
   onDelete(item:any){
     console.log(item);
     console.log(this.rolesAdded);
-    var index = this.rolesAdded.indexOf(item.Name);
+    var index = this.rolesAdded.indexOf(item);
     console.log(index);
     if (index > -1) {
       this.rolesAdded.splice(index, 1);

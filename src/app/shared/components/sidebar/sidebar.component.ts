@@ -14,6 +14,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.service.getprofile().then((res:any) => {
       this.profile = res;
+      localStorage.setItem('linkedID', res.LinkedCustomerID);
+      localStorage.setItem('fullname',res.FullName);
+      localStorage.setItem('userId',res.Id);
     });
   }
 

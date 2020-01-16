@@ -23,7 +23,7 @@ import { AuthInterceptor } from './modules/auth/auth.interceptor';
     ToastrModule.forRoot(),
     DefaultModule
   ],
-  providers: [SharedService,UserService,{
+  providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

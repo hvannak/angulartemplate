@@ -1,0 +1,102 @@
+<div class="jumbotron">
+  <h1 class="text-center">Broiler Scale</h1>
+  <hr>
+    <div class="mat-elevation-z8">  
+        <mat-card>
+              <mat-grid-list cols="2" rowHeight="100px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <form class="form-group" #form="ngForm" (submit)="onSubmit()">
+                        <div class="form-row">
+                            <mat-form-field>
+                              <input name="fromDate" [(ngModel)]="fromDate" class="form-control" matInput [matDatepicker]="myDatepicker1" required placeholder="Start date">
+                              <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+                              <mat-datepicker #myDatepicker1></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                              <input name="toDate" [(ngModel)]="toDate" class="form-control" matInput [matDatepicker]="myDatepicker2" required placeholder="End date">
+                              <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+                              <mat-datepicker #myDatepicker2></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                              <label>ProjectID</label>
+                              <input matInput  name="projectId" [(ngModel)]="projectId" required>
+                            </mat-form-field>
+                            <button mat-stroked-button type="submit" [disabled]="form.invalid" color="primary">Load...</button>
+                        </div>
+                      </form>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-list>
+                        <mat-list-item>Exclude Broiler>Trap: {{totalNumOfTotalTrap | number}},Weight: {{totalWeightTrap | number}} </mat-list-item>
+                        <mat-list-item>Include Broiler>Trap: {{totalNumOfTotalTrap | number}},Weight: {{totalTotalWeight | number}},Net Weight: {{totalNetWeight | number}},Chicken: {{totalChicken | number}} </mat-list-item>
+                    </mat-list>
+                </mat-grid-tile>
+              </mat-grid-list>
+              
+        </mat-card>
+ 
+      <table class="table table-hover" mat-table [dataSource]="service.broilerList" matSort>
+        <ng-container matColumnDef="GroupID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> GroupID </th>
+          <td mat-cell *matCellDef="let element"> {{element.GroupID | number:'4.0-0'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="CustomerID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> CustomerID </th>
+          <td mat-cell *matCellDef="let element"> {{element.CustomerID}} </td>
+        </ng-container>
+        <ng-container matColumnDef="CustomerName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> CustomerName </th>
+          <td mat-cell *matCellDef="let element"> {{element.CustomerName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TypeOfScale">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TypeOfScale </th>
+          <td mat-cell *matCellDef="let element"> {{element.TypeOfScale}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Weight">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.Weight}} </td>
+        </ng-container>
+        <ng-container matColumnDef="DateOfScale">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DateOfScale </th>
+          <td mat-cell *matCellDef="let element"> {{element.DateOfScale}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ProjectID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ProjectID </th>
+          <td mat-cell *matCellDef="let element"> {{element.ProjectID}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TypeOfItem">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TypeOfItem </th>
+          <td mat-cell *matCellDef="let element"> {{element.TypeOfItem}} </td>
+        </ng-container>
+        <ng-container matColumnDef="NumOfTrap">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> NumOfTrap </th>
+          <td mat-cell *matCellDef="let element"> {{element.NumOfTrap}} </td>
+        </ng-container>
+        <ng-container matColumnDef="NumOfChicken">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> NumOfChicken </th>
+          <td mat-cell *matCellDef="let element"> {{element.NumOfChicken}} </td>
+        </ng-container>
+        <ng-container matColumnDef="UnitPrice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> UnitPrice </th>
+          <td mat-cell *matCellDef="let element"> {{element.UnitPrice}} </td>
+        </ng-container>
+        <ng-container matColumnDef="LocationID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> LocationID </th>
+          <td mat-cell *matCellDef="let element"> {{element.LocationID}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ViewImg">
+          <th mat-header-cell *matHeaderCellDef> 
+            
+          </th>
+          <td mat-cell *matCellDef="let element"> 
+              <mat-icon (click)="viewImage(element.Image)">view_comfy</mat-icon>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[25, 100]"></mat-paginator>
+    </div>
+</div>
+

@@ -1,0 +1,101 @@
+<div class="jumbotron">
+  <h1 class="display-4 text-center">Truck Scale</h1>
+  <hr>
+    <div class="mat-elevation-z8">  
+      <!-- <div class="row">
+        <div class="col-md-8">
+            <form #form="ngForm" (submit)="onSubmit()">
+              <div class="form-row">
+                  <mat-form-field>
+                    <input name="fromDate" [(ngModel)]="fromDate" class="form-control" matInput [matDatepicker]="myDatepicker1" placeholder="Start date">
+                    <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+                    <mat-datepicker #myDatepicker1></mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input name="toDate" [(ngModel)]="toDate" class="form-control" matInput [matDatepicker]="myDatepicker2" placeholder="End date">
+                    <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+                    <mat-datepicker #myDatepicker2></mat-datepicker>
+                  </mat-form-field>
+                  <button mat-stroked-button type="submit" [disabled]="form.invalid" color="primary">Load...</button>
+              </div>
+            </form>
+        </div>         
+      </div>   -->
+      <mat-card>
+        <form #form="ngForm" (submit)="onSubmit()">
+            <div class="form-row">
+                <mat-form-field>
+                  <input name="fromDate" [(ngModel)]="fromDate" class="form-control" matInput [matDatepicker]="myDatepicker1" placeholder="Start date">
+                  <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+                  <mat-datepicker #myDatepicker1></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                  <input name="toDate" [(ngModel)]="toDate" class="form-control" matInput [matDatepicker]="myDatepicker2" placeholder="End date">
+                  <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+                  <mat-datepicker #myDatepicker2></mat-datepicker>
+                </mat-form-field>
+                <button mat-stroked-button type="submit" [disabled]="form.invalid" color="primary">Load...</button>
+            </div>
+          </form>
+      </mat-card>
+      <table class="table table-hover" mat-table [dataSource]="service.truckList" matSort>
+        <ng-container matColumnDef="RefNbr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> RefNbr </th>
+          <td mat-cell *matCellDef="let element"> {{element.RefNbr | number:'4.0-0'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TruckID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TruckID </th>
+          <td mat-cell *matCellDef="let element"> {{element.TruckID}} </td>
+        </ng-container>
+        <ng-container matColumnDef="CustomerID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> CustomerID </th>
+          <td mat-cell *matCellDef="let element"> {{element.CustomerID}} </td>
+        </ng-container>
+        <ng-container matColumnDef="CustomerName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> CustomerName </th>
+          <td mat-cell *matCellDef="let element"> {{element.CustomerName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TruckWeight">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TruckWeight </th>
+          <td mat-cell *matCellDef="let element"> {{element.TruckWeight}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TotalWeight">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TotalWeight </th>
+          <td mat-cell *matCellDef="let element"> {{element.TotalWeight}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ItemWeight">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ItemWeight </th>
+          <td mat-cell *matCellDef="let element"> {{element.ItemWeight}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="DateOfScale">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DateOfScale </th>
+          <td mat-cell *matCellDef="let element"> {{element.DateOfScale}} </td>
+        </ng-container>
+        <ng-container matColumnDef="SecondDateOfScale">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> SecondDateOfScale </th>
+          <td mat-cell *matCellDef="let element"> {{element.SecondDateOfScale}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Location">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+          <td mat-cell *matCellDef="let element"> {{element.Location}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ViewImge">
+          <th mat-header-cell *matHeaderCellDef> 
+            
+          </th>
+          <td mat-cell *matCellDef="let element"> 
+              <mat-icon (click)="viewImage(element.ImageIN,element.ImageOUT)">view_comfy</mat-icon>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[25, 100]"></mat-paginator>
+    </div>
+</div>
+
