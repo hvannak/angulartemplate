@@ -8,65 +8,63 @@
     </div>
     <mat-divider></mat-divider>
     <mat-expansion-panel>
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header><mat-icon>pages</mat-icon>
             Pages
         </mat-expansion-panel-header>
         <mat-divider></mat-divider>
         <mat-list dense>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/"><mat-icon>assessment</mat-icon> Dashboard</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Posts</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/posts"><mat-icon>feedback</mat-icon>Posts</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/leave">Take Leave</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/saleorders"><mat-icon>receipt</mat-icon>Saleorders</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/outstanding">Customer Outstanding</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/gpstracking"><mat-icon>gps_fixed</mat-icon>GPS Tracking</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/payment">Customer Payment</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/leave"><mat-icon>time_to_leave</mat-icon>Take Leave</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/privacies">Privacies</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/outstanding"><mat-icon>people</mat-icon>Customer Outstanding</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/register">Register</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/payment"><mat-icon>people_alt</mat-icon>Customer Payment</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/broiler">Broiler Scale</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/privacies"><mat-icon>local_printshop</mat-icon>Privacies</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/pig">Pig Scale</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/register"><mat-icon>how_to_reg</mat-icon>Register</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/truck">Truck Scale</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/broiler"><mat-icon>linear_scale</mat-icon>Broiler Scale</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/pig"><mat-icon>drag_indicator</mat-icon>Pig Scale</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/truck"><mat-icon>motorcycle</mat-icon>Truck Scale</a></mat-list-item>
         </mat-list>    
     </mat-expansion-panel>
     <mat-divider></mat-divider>
     <mat-expansion-panel>
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header><mat-icon>emoji_people</mat-icon>
             Identity
         </mat-expansion-panel-header> 
         <mat-divider></mat-divider>   
         <mat-list dense>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/role">Application Roles</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/role"><mat-icon>build</mat-icon>Application Roles</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/user">Application Users</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/user"><mat-icon>person</mat-icon>Application Users</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/autherize">Roles Autherization</a></mat-list-item>
+            <mat-list-item><a mat-list-item routerLinkActive="list-item-active" routerLink="/autherize"><mat-icon>share</mat-icon>Roles Autherization</a></mat-list-item>
         </mat-list>   
     </mat-expansion-panel>
     <mat-divider></mat-divider>
     <mat-expansion-panel>
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header><mat-icon>pan_tool</mat-icon>
             Tools
         </mat-expansion-panel-header>
         <mat-divider></mat-divider>
         <mat-list dense>
             <mat-list-item>
-                <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-                    <mat-icon>import_contacts</mat-icon>
-                    Contacts
-                </a>
+                <a mat-list-item routerLinkActive="list-item-active"><mat-icon>import_contacts</mat-icon>Contacts</a>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>
-                <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-                    <mat-icon>contact_phone</mat-icon>
-                    Leads
-                </a>
+                <a mat-list-item routerLinkActive="list-item-active"><mat-icon>contact_phone</mat-icon>Leads</a>
             </mat-list-item>
         </mat-list>       
     </mat-expansion-panel>

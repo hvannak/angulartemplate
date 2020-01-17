@@ -1,0 +1,56 @@
+<h4 class="dispaly-4">Order Items</h4>
+<hr>
+<div class="container">
+  <div class="col-md-12">
+      <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="service.formSaleOrderItem" autocomplete="off" (submit)="onSubmit()">
+                    <div class="form-group">
+                        <label>InventoryID</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="button" (click)="onSearchInventory()" >Search</button>
+                          </div>
+                          <input type="text" id="inventory" class="form-control" placeholder="InventoryID">
+                          <select class="form-control" formControlName="InventoryID" required (change)="onChangeInventory($event)">
+                            <option *ngFor="let item of inventoryList" value="{{item.InventoryID.value}}">{{item.Description.value}}</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>WarehouseID</label>
+                        <select class="form-control" formControlName="WarehouseID" required readonly>
+                          <option value="M000">M000</option>
+                          <option value="F001">F001</option>
+                        </select>
+                    </div>
+                    <div class="form-group required">
+                      <label>OrderQty</label>
+                      <input class="form-control" formControlName="OrderQty" (change)="onOrderQtyChange()">
+                      <label class="text-danger" *ngIf="service.formSaleOrderItem.get('OrderQty').touched && service.formSaleOrderItem.get('OrderQty').errors?.required">This field is mandatory.</label>
+                    </div>
+                    <div class="form-group required">
+                      <label>UnitPrice</label>
+                      <input class="form-control" formControlName="UnitPrice" readonly>
+                      <label class="text-danger" *ngIf="service.formSaleOrderItem.get('UnitPrice').touched && service.formSaleOrderItem.get('UnitPrice').errors?.required">This field is mandatory.</label>
+                    </div>
+                    <div class="form-group required">
+                      <label>ExtendedPrice</label>
+                      <input class="form-control" formControlName="ExtendedPrice" readonly>
+                      <label class="text-danger" *ngIf="service.formSaleOrderItem.get('ExtendedPrice').touched && service.formSaleOrderItem.get('ExtendedPrice').errors?.required">This field is mandatory.</label>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-lg btn-block" [disabled]="!service.formSaleOrderItem.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                <div class="form-group">
+                  <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

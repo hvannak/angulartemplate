@@ -1,0 +1,50 @@
+<h4 class="dispaly-4">GPS Info</h4>
+<hr>
+<div class="container">
+  <div class="col-md-12">
+      <div class="jumbotron">
+          <table class="table table-striped">
+            <thead>
+              <th>-</th>
+              <th>Start</th>
+              <th>End</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Latitue</td>
+                <td>{{orginpoint.Lat}}</td>
+                <td>{{destpoint.Lat}}</td>
+              </tr>
+              <tr>
+                <td>Long Latitue</td>
+                <td>{{orginpoint.Lng}}</td>
+                <td>{{destpoint.Lng}}</td>
+              </tr>
+              <tr>
+                <td>Date</td>
+                <td>{{orginpoint.Gpsdatetime}}</td>
+                <td>{{destpoint.Gpsdatetime}}</td>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td>{{orginpoint.CheckType}}</td>
+                <td>{{destpoint.CheckType}}</td>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td>{{orginpoint.Customer}}</td>
+                <td>{{destpoint.Customer}}</td>
+              </tr>
+              <tr>
+                <td>Image</td>
+                <td><img [src]="orginpoint.Image"  style="width:250px;height:200px"></td>
+                <td><img [src]="destpoint.Image"  style="width:250px;height:200px"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="form-group">
+            <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+          </div>
+      </div>
+  </div>
+</div>

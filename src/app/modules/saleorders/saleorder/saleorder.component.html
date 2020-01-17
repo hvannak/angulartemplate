@@ -1,0 +1,92 @@
+<div class="jumbotron">
+  <h1 class="display-4 text-center">SaleOrder</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="service.formSaleOrder" autocomplete="off" (submit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6">
+              <div class="form-group required">
+                <label>OrderNbr</label>
+                <input class="form-control" formControlName="OrderNbr" placeholder="NEW" readonly> 
+                <label class="text-danger" *ngIf="service.formSaleOrder.get('OrderNbr').touched && service.formSaleOrder.get('OrderNbr').errors?.required">This field is mandatory.</label>
+              </div>
+              <div class="form-group">
+                  <label>CustomerID</label>
+                  <div class="input-group">
+                    <div *ngIf="iscustomer" class="input-group-prepend">
+                      <button class="btn btn-outline-secondary" type="button" (click)="onSearchCustomer()" >Search</button>
+                    </div>
+                    <input *ngIf="iscustomer" type="text" id="customer" class="form-control" placeholder="Customer">
+                    <select class="form-control" formControlName="CustomerID" required (change)="onChangeCustomer($event)">
+                      <option *ngFor="let item of customerList" value="{{item.CustomerID.value}}">{{item.CustomerName.value}}</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="form-group required">
+                <label>Description</label>
+                <input class="form-control" formControlName="OrderDesc">
+                <label class="text-danger" *ngIf="service.formSaleOrder.get('OrderDesc').touched && service.formSaleOrder.get('OrderDesc').errors?.required">This field is mandatory.</label>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group required">
+                <label>OrderQty</label>
+                <input class="form-control" formControlName="OrderQty" readonly>
+                <label class="text-danger" *ngIf="service.formSaleOrder.get('OrderQty').touched && service.formSaleOrder.get('OrderQty').errors?.required">This field is mandatory.</label>
+              </div>
+              <div class="form-group required">
+                <label>OrderTotal</label>
+                <input class="form-control" formControlName="OrderTotal" readonly>
+                <label class="text-danger" *ngIf="service.formSaleOrder.get('OrderTotal').touched && service.formSaleOrder.get('OrderTotal').errors?.required">This field is mandatory.</label>
+              </div>
+              <div class="form-group required">
+                <mat-form-field>
+                  <input formControlName="OrderDate" class="form-control" matInput [matDatepicker]="myDatepicker1" required placeholder="Date">
+                  <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+                  <mat-datepicker #myDatepicker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+          </div>
+        </div> 
+
+        <table class="table table-borderless">
+            <thead class="thead-light">
+              <th>InventoryID</th>
+              <th>WarehouseID</th>
+              <th>OrderQty</th>
+              <th>UnitPrice</th>
+              <th>LineAmt</th>
+              <th>
+                <a class="btn btn-sm btn-success text-white" (click)="AddOrEditSaleItemLine(null)"><i class="fa fa-plus"></i> Add Item</a>
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngIf="service.saleOrderItem.length==0" [class.text-danger]="!isValid && service.saleOrderItem.length==0">
+                <td class="font-italic text-center" colspan="5">
+                  No Order Items line selected for this SaleOrder.
+                </td>
+              </tr>
+  
+              <tr *ngFor="let item of service.saleOrderItem;let i=index;">
+                <td>{{item.InventoryID}}</td>
+                <td>{{item.WarehouseID}}</td>
+                <td>{{item.OrderQty}}</td>
+                <td>{{item.UnitPrice}}</td>
+                <td>{{item.ExtendedPrice}}</td>
+                <td>
+                    <mat-icon (click)="AddOrEditSaleItemLine(item.OrderDetailID)">edit</mat-icon>
+                    <mat-icon (click)="onDeleteSaleItemLine(item.OrderDetailID,i)">delete_forever</mat-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        
+        <div class="form-group">
+          <button type="submit" class="btn btn-dark" [disabled]="!service.formSaleOrder.valid">Submit</button>
+          <a class="btn btn-outline-dark ml-1" routerLink="/saleorders"><i class="fa fa-table"></i> View SaleOrder</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

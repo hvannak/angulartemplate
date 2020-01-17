@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RoleService } from 'src/app/shared/services/role.service';
 import { UserEditComponent } from '../user-edit/user-edit.component';
+import { ExcelService } from 'src/app/shared/services/excel.service';
 
 @Component({
   selector: 'app-user-access',
@@ -17,7 +18,7 @@ export class UserAccessComponent implements OnInit {
   @ViewChild(MatPaginator,{static:false}) paginator: MatPaginator;
   @ViewChild(MatSort,{static:false}) sort: MatSort;
   rolesList: any[];
-  constructor(public service:UserService,private router: Router,private roleService:RoleService,
+  constructor(public service:UserService,private router: Router,private roleService:RoleService,private excelService:ExcelService,
     private toastr:ToastrService,private dialog: MatDialog) {
 
      }
@@ -75,6 +76,12 @@ export class UserAccessComponent implements OnInit {
         this.toastr.warning("Deleted Successfully", "User Roles.");
       });
     }
+  }
+
+  Export(){
+    this.service.getUsers().then((res:any) => {
+      this.excelService.exportAsExcelFile(res, 'user');
+    });
   }
 
   onSubmit(){

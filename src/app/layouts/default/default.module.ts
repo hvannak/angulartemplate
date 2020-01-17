@@ -26,6 +26,15 @@ import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { CustomeroutstandingComponent } from 'src/app/modules/customeroutstanding/customeroutstanding.component';
 import { CustomerpaymentComponent } from 'src/app/modules/customerpayment/customerpayment.component';
 import { TakeleaveComponent } from 'src/app/modules/takeleave/takeleave.component';
+import { SaleorderComponent } from 'src/app/modules/saleorders/saleorder/saleorder.component';
+import { SaleordersComponent } from 'src/app/modules/saleorders/saleorders.component';
+import { SaleorderItemsComponent } from 'src/app/modules/saleorders/saleorder-items/saleorder-items.component';
+import { GpstrackingComponent } from 'src/app/modules/gpstracking/gpstracking.component';
+import { GpsinfoComponent } from 'src/app/modules/gpstracking/gpsinfo/gpsinfo.component';
+import { GpsmanualComponent } from 'src/app/modules/gpstracking/gpsmanual/gpsmanual.component';
+import { AgmDirectionModule } from 'agm-direction';
+import { AgmCoreModule } from '@agm/core';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -48,7 +57,13 @@ import { TakeleaveComponent } from 'src/app/modules/takeleave/takeleave.componen
     PrivacyViewComponent,
     CustomeroutstandingComponent,
     CustomerpaymentComponent,
-    TakeleaveComponent
+    TakeleaveComponent,
+    SaleorderComponent,
+    SaleordersComponent,
+    SaleorderItemsComponent,
+    GpstrackingComponent,
+    GpsinfoComponent,
+    GpsmanualComponent
   ],
   imports: [
     CommonModule,
@@ -57,8 +72,11 @@ import { TakeleaveComponent } from 'src/app/modules/takeleave/takeleave.componen
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    RichTextEditorModule
+    RichTextEditorModule,
+    AgmCoreModule.forRoot(),
+    AgmDirectionModule,
+    HighchartsChartModule
   ],
-  entryComponents:[UserEditComponent,ImagedisplayComponent]
+  entryComponents:[UserEditComponent,ImagedisplayComponent,SaleorderItemsComponent,GpsinfoComponent,GpsmanualComponent]
 })
 export class DefaultModule { }

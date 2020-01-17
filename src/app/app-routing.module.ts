@@ -19,6 +19,9 @@ import { PrivacyViewComponent } from './modules/privacy/privacy-view/privacy-vie
 import { CustomeroutstandingComponent } from './modules/customeroutstanding/customeroutstanding.component';
 import { CustomerpaymentComponent } from './modules/customerpayment/customerpayment.component';
 import { TakeleaveComponent } from './modules/takeleave/takeleave.component';
+import { SaleordersComponent } from './modules/saleorders/saleorders.component';
+import { SaleorderComponent } from './modules/saleorders/saleorder/saleorder.component';
+import { GpstrackingComponent } from './modules/gpstracking/gpstracking.component';
 
 
 const routes: Routes = [{
@@ -88,6 +91,26 @@ const routes: Routes = [{
   {
     path:'leave',
     component:TakeleaveComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'saleorders',
+    component:SaleordersComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'saleorder',
+    component:SaleorderComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'saleorder/edit/:id',
+    component:SaleorderComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'gpstracking',
+    component: GpstrackingComponent,
     canActivate:[AuthGuard]
   },
   {

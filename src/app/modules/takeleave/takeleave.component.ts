@@ -132,7 +132,7 @@ export class TakeleaveComponent implements OnInit {
     }
   }
 
-  onLeaveDelete(id: number) {
+  onLeaveDelete(id: string) {
     if (confirm('Are you sure to delete this record?')) {
       this.service.deleteTakeleave(id).then(res => {
         let index = this.service.leaveList.data.findIndex(x=>x.LeaveID == id);

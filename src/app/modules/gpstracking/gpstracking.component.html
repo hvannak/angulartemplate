@@ -1,0 +1,52 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer class="example-sidenav" mode="side" opened>
+      <div class="filter">
+          <form class="form-group" #form="ngForm" (submit)="onSubmit()">
+              <mat-form-field>
+                  <input name="fromDate" [(ngModel)]="fromDate" class="form-control" matInput [matDatepicker]="myDatepicker1" required placeholder="Start date">
+                  <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+                  <mat-datepicker #myDatepicker1></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                  <input name="toDate" [(ngModel)]="toDate" class="form-control" matInput [matDatepicker]="myDatepicker2" required placeholder="End date">
+                  <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+                  <mat-datepicker #myDatepicker2></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>UserID</mat-label>
+                  <mat-select name="userId" [(ngModel)]="userId" required>
+                    <mat-option *ngFor="let user of userList" [value]="user.Id">
+                      {{user.FullName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button mat-stroked-button type="submit" [disabled]="form.invalid" color="primary">Load...</button>
+          </form>
+      </div>
+      <button mat-button color="primary" (click)="gpsManual(null)"><mat-icon>add_circle</mat-icon></button>
+      <table class="table table-striped listdata">
+        <tbody>
+          <tr *ngFor="let gps of service.gpsTrackingList">
+            <td (click)="showRouting(gps.GpsID)">{{ gps.CheckType}}</td>
+            <td (click)="showRouting(gps.GpsID)">{{ gps.Customer }}</td>
+            <td (click)="showRouting(gps.GpsID)">{{ gps.Gpsdatetime }}</td>
+            <td (click)="deleteGpsTracking(gps.GpsID)"><mat-icon>highlight_off</mat-icon></td>
+            <td (click)="gpsManual(gps)"><mat-icon>edit</mat-icon></td>
+            <td (click)="gpsInfo(gps)"><mat-icon>360</mat-icon></td>
+          </tr>
+        </tbody>
+      </table>
+  </mat-drawer>
+  <mat-drawer-content>
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker *ngIf="initMarker" [latitude]="lat" [longitude]="lng">
+          <agm-info-window>Start Point</agm-info-window>
+      </agm-marker>
+      <agm-direction *ngIf="initDestination" [origin]="origin" [destination]="destination">
+      </agm-direction>
+    </agm-map>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+

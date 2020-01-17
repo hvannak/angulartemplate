@@ -1,0 +1,33 @@
+
+.example-container {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  height: 100hv;
+}
+
+.example-sidenav {
+  width: 440px;
+  padding: 0px;
+}
+
+.filter{
+  padding: 20px;
+  background-color: bisque;
+  font-size: 10px;
+}
+
+.listdata{
+  font-size: 10px;
+}
+
+#map {
+    width: 100%;
+    height: 100vh;
+   }
+
+.mat-icon {
+    cursor:pointer
+}
+
+agm-map {
+  height: 100vh;
+}

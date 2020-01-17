@@ -42,6 +42,7 @@
                     <mat-form-field>
                         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                     </mat-form-field>
+                    <button mat-button color="Primary" (click)="Export()">Export</button>
                 </div>
                 <table class="table table-hover" mat-table [dataSource]="service.userroleList" matSort>
                     <ng-container matColumnDef="UserName">
