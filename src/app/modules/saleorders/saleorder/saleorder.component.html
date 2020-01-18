@@ -50,8 +50,8 @@
           </div>
         </div> 
 
-        <table class="table table-borderless">
-            <thead class="thead-light">
+        <table class="table table-striped">
+            <thead class="thead-dark">
               <th>InventoryID</th>
               <th>WarehouseID</th>
               <th>OrderQty</th>
@@ -62,7 +62,7 @@
               </th>
             </thead>
             <tbody>
-              <tr *ngIf="service.saleOrderItem.length==0" [class.text-danger]="!isValid && service.saleOrderItem.length==0">
+              <tr *ngIf="service.saleOrderItem.length==0" [class.text-danger]="service.saleOrderItem.length==0">
                 <td class="font-italic text-center" colspan="5">
                   No Order Items line selected for this SaleOrder.
                 </td>

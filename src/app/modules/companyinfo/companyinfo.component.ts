@@ -19,7 +19,6 @@ import { ViewportScroller, DOCUMENT } from '@angular/common';
 })
 export class CompanyinfoComponent implements OnInit,AfterViewInit {
   imageUrl: string = "/assets/images/IMG_6222.png";
-  imageUrlsample :string = "/assets/images/sample.png";
   @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   map: google.maps.Map;
   lat = 11.559118;
