@@ -21,8 +21,12 @@ export class CustomerService {
     return this.service.getDataById('/Customer/CustomerID/', id);
   }
 
-  getCustomerBySalepersonID(saleid:string,custid:string){
+  getCustomerBySalepersonIDAndCustomer(saleid:string,custid:string){
     return this.service.getDataByTwoParam('/Customer/SalespersonID/', saleid, custid);
+  }
+
+  getCustomerBySalepersonID(saleid:string){
+    return this.service.getDataById('/Customer/SalespersonID/', saleid);
   }
 
   getCustomerOutstandingList(id:string){

@@ -9,11 +9,11 @@
             <td mat-cell *matCellDef="let element"> {{element.TeamName}} </td>
           </ng-container>
           <ng-container matColumnDef="Edit">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header width ="5%"> </th>
             <td mat-cell *matCellDef="let element" (click)="openForEdit(element.TeamID)"><mat-icon>edit</mat-icon></td>
           </ng-container>
           <ng-container matColumnDef="Delete">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <th  mat-header-cell *matHeaderCellDef mat-sort-header width ="5%"> </th>
             <td mat-cell *matCellDef="let element" (click)="deleteTeam(element.TeamID)"><mat-icon>delete_forever</mat-icon></td>
           </ng-container>
 

@@ -9,6 +9,7 @@ import { RoleService } from 'src/app/shared/services/role.service';
 import { ToastrService } from 'ngx-toastr';
 import { GpstrackingService } from 'src/app/shared/services/gpstracking.service';
 import { TeamsService } from 'src/app/shared/services/teams.service';
+import { CustomerService } from 'src/app/shared/services/customer.service';
 
 @Component({
   selector: 'app-gpstracking',
@@ -21,30 +22,21 @@ export class GpstrackingComponent implements OnInit {
   public lng = 104.873510;
   public origin: any
   public destination: any
-  initDestination = false;
-  initMarker = false;
+  initDestination: boolean = false;
   fromDate:Date;
   toDate:Date;
   userId:string;
   userList;
   teamList;
   teamID;
-  constructor(private dialog: MatDialog,public service:GpstrackingService,private serviceTeam:TeamsService,
+  customerList:any[];
+  constructor(private dialog: MatDialog,public service:GpstrackingService,private serviceTeam:TeamsService,private serviceCustomer:CustomerService,
     public userService:UserService,private roleService:RoleService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.service.gpsTrackingList =[];
-    this.origin = { lat: 11.559141, lng: 104.873510 }
-    // this.getGpsTracking();
+    this.customerList = [];
     this.getTeam();
-    // this.roleService.checkedThisUserIsAdmin().then(res => {
-    //   if(res != null){
-    //     // this.getUserList();
-    //   }
-    //   else{
-    //     this.getUserListById(localStorage.getItem('userId'));
-    //   }
-    // })
   }
 
   onSubmit(){
@@ -69,19 +61,33 @@ export class GpstrackingComponent implements OnInit {
     })
   }
 
+
   onChangeTeam(event) {
     this.getTeamUser(this.teamID);
   }
 
+  onChangeUser(event){
+    if(this.customerList.length > 0){
+      this.customerList = [];
+    }
+    let index = this.userList.findIndex(x=>x.Id == event.value);
+    if(this.userList[index].LinkedCustomerID != null) {
+        this.serviceCustomer.getCustomerBySalepersonID(this.userList[index].LinkedCustomerID).then((res:any) => {
+          this.customerList = res.Results;
+        });
+    }
+  }
+
   showRouting(gpsId){
     let index = this.service.gpsTrackingList.findIndex(x=>x.GpsID == gpsId);
+    this.initDestination = true;
     if(index == 0){
-      this.initMarker = true;
       this.lat = this.service.gpsTrackingList[index].Lat;
       this.lng = this.service.gpsTrackingList[index].Lng;
+      this.origin = { lat: parseFloat(this.lat.toString()) , lng: parseFloat(this.lng.toString()) }
+      this.destination = { lat: parseFloat(this.lat.toString()), lng: parseFloat(this.lng.toString()) }
     }
-    else{
-      this.initDestination = true;    
+    else{   
       let orginLat = this.service.gpsTrackingList[index-1].Lat.toString();
       let orginLng = this.service.gpsTrackingList[index-1].Lng.toString();
       let destLat = this.service.gpsTrackingList[index].Lat.toString();

@@ -98,7 +98,16 @@ export class UserService {
   }
 
   register() {
-    return this.shared.postData(this.formModel.value,'/ApplicationUser/Register');
+    var body = {
+      UserName: this.formModel.value.UserName,
+      Email: this.formModel.value.Email,
+      FullName: this.formModel.value.FullName,
+      LinkedCustomerID: this.formModel.value.LinkedCustomerID,
+      DefaultRole:this.formModel.value.DefaultRole,
+      Telephone:this.formModel.value.Telephone,
+      Password: this.formModel.value.Passwords.Password
+    };
+    return this.shared.postData(body,'/ApplicationUser/Register');
   }
 
   putUser(){

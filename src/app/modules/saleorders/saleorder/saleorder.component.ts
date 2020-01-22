@@ -120,7 +120,7 @@ export class SaleorderComponent implements OnInit {
     var data = document.getElementById('customer') as HTMLInputElement; 
     if(data.value != ''){
       if(localStorage.getItem('linkedID') != 'null'){
-        this.customerService.getCustomerBySalepersonID(localStorage.getItem('linkedID'),data.value).then((res:any) =>{
+        this.customerService.getCustomerBySalepersonIDAndCustomer(localStorage.getItem('linkedID'),data.value).then((res:any) =>{
           this.customerList = res.Results
         });
       }

@@ -22,7 +22,7 @@
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>UserID</mat-label>
-                  <mat-select name="userId" [(ngModel)]="userId" required>
+                  <mat-select name="userId" [(ngModel)]="userId" required (selectionChange)="onChangeUser($event)">
                     <mat-option *ngFor="let user of userList" [value]="user.Id">
                       {{user.FullName}}
                     </mat-option>
@@ -47,8 +47,8 @@
   </mat-drawer>
   <mat-drawer-content>
     <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker *ngIf="initMarker" [latitude]="lat" [longitude]="lng">
-          <agm-info-window>Start Point</agm-info-window>
+      <agm-marker *ngFor="let data of customerList; let i = index" [latitude]="data.Latitude.value" [longitude]="data.Longitude.value">
+          <agm-info-window>{{data.CustomerName.value}} </agm-info-window>
       </agm-marker>
       <agm-direction *ngIf="initDestination" [origin]="origin" [destination]="destination">
       </agm-direction>
