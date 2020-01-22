@@ -1,0 +1,28 @@
+<h4 class="dispaly-4">Team Member</h4>
+<hr>
+<div class="container">
+  <div class="col-md-12">
+      <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="service.formTeamMember" autocomplete="off" (submit)="onSubmit()">
+                    <div class="form-group">
+                        <label>User</label>
+                        <select class="form-control" formControlName="UserID" required (change)="onChangeUser($event)">
+                            <option *ngFor="let item of userList" value="{{item.Id}}">{{item.FullName}}</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-lg btn-block" [disabled]="!service.formTeamMember.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                <div class="form-group">
+                  <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

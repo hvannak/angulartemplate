@@ -8,6 +8,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { RoleService } from 'src/app/shared/services/role.service';
 import { ToastrService } from 'ngx-toastr';
 import { GpstrackingService } from 'src/app/shared/services/gpstracking.service';
+import { TeamsService } from 'src/app/shared/services/teams.service';
 
 @Component({
   selector: 'app-gpstracking',
@@ -26,22 +27,24 @@ export class GpstrackingComponent implements OnInit {
   toDate:Date;
   userId:string;
   userList;
-  constructor(private dialog: MatDialog,public service:GpstrackingService,
+  teamList;
+  teamID;
+  constructor(private dialog: MatDialog,public service:GpstrackingService,private serviceTeam:TeamsService,
     public userService:UserService,private roleService:RoleService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.service.gpsTrackingList =[];
     this.origin = { lat: 11.559141, lng: 104.873510 }
-    this.getGpsTracking();
-    this.roleService.checkedThisUserIsAdmin().then(res => {
-      console.log(res);
-      if(res != null){
-        this.getUserList();
-      }
-      else{
-        this.getUserListById(localStorage.getItem('userId'));
-      }
-    })
+    // this.getGpsTracking();
+    this.getTeam();
+    // this.roleService.checkedThisUserIsAdmin().then(res => {
+    //   if(res != null){
+    //     // this.getUserList();
+    //   }
+    //   else{
+    //     this.getUserListById(localStorage.getItem('userId'));
+    //   }
+    // })
   }
 
   onSubmit(){
@@ -52,6 +55,22 @@ export class GpstrackingComponent implements OnInit {
     this.service.getGpstrackingByDate(from,to,userId).then(res =>{
       this.service.gpsTrackingList = res as Array<any>
     });
+  }
+
+  getTeam(){
+    this.serviceTeam.getTeam().then((res:any) => {
+      this.teamList = res;
+    });
+  }
+
+  getTeamUser(teamId) {
+    this.serviceTeam.getTeamUser(teamId).then((res:any) => {
+      this.userList = res;
+    })
+  }
+
+  onChangeTeam(event) {
+    this.getTeamUser(this.teamID);
   }
 
   showRouting(gpsId){

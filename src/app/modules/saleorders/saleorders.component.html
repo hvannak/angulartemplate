@@ -72,6 +72,10 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header> OrderTotal </th>
           <td mat-cell *matCellDef="let element"> {{element.OrderTotal}} </td>
         </ng-container>
+        <ng-container matColumnDef="Print">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+          <td mat-cell *matCellDef="let element" (click)="printOrder(element)"><mat-icon>print</mat-icon></td>
+        </ng-container>
         <ng-container matColumnDef="Edit">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
           <td mat-cell *matCellDef="let element" (click)="openForEdit(element.SaleOrderID,element.IsSyn)"><mat-icon>edit</mat-icon></td>

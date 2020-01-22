@@ -35,6 +35,9 @@ import { GpsmanualComponent } from 'src/app/modules/gpstracking/gpsmanual/gpsman
 import { AgmDirectionModule } from 'agm-direction';
 import { AgmCoreModule } from '@agm/core';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { TeamsComponent } from 'src/app/modules/teams/teams.component';
+import { TeamMembersComponent } from 'src/app/modules/teams/team-members/team-members.component';
+import { TeamComponent } from 'src/app/modules/teams/team/team.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { HighchartsChartModule } from 'highcharts-angular';
     SaleorderItemsComponent,
     GpstrackingComponent,
     GpsinfoComponent,
-    GpsmanualComponent
+    GpsmanualComponent,
+    TeamsComponent,
+    TeamComponent,
+    TeamMembersComponent
   ],
   imports: [
     CommonModule,
@@ -77,6 +83,6 @@ import { HighchartsChartModule } from 'highcharts-angular';
     AgmDirectionModule,
     HighchartsChartModule
   ],
-  entryComponents:[UserEditComponent,ImagedisplayComponent,SaleorderItemsComponent,GpsinfoComponent,GpsmanualComponent]
+  entryComponents:[UserEditComponent,ImagedisplayComponent,SaleorderItemsComponent,GpsinfoComponent,GpsmanualComponent,TeamMembersComponent]
 })
 export class DefaultModule { }

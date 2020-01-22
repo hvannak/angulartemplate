@@ -13,6 +13,14 @@
                   <mat-datepicker #myDatepicker2></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field>
+                  <mat-label>Team</mat-label>
+                  <mat-select name="teamID" [(ngModel)]="teamID" required (selectionChange)="onChangeTeam($event)">
+                    <mat-option *ngFor="let team of teamList" [value]="team.TeamID">
+                      {{team.TeamName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
                   <mat-label>UserID</mat-label>
                   <mat-select name="userId" [(ngModel)]="userId" required>
                     <mat-option *ngFor="let user of userList" [value]="user.Id">

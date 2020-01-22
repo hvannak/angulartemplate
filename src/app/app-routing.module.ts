@@ -22,6 +22,8 @@ import { TakeleaveComponent } from './modules/takeleave/takeleave.component';
 import { SaleordersComponent } from './modules/saleorders/saleorders.component';
 import { SaleorderComponent } from './modules/saleorders/saleorder/saleorder.component';
 import { GpstrackingComponent } from './modules/gpstracking/gpstracking.component';
+import { TeamsComponent } from './modules/teams/teams.component';
+import { TeamComponent } from './modules/teams/team/team.component';
 
 
 const routes: Routes = [{
@@ -109,6 +111,21 @@ const routes: Routes = [{
     canActivate:[AuthGuard]
   },
   {
+    path:'teams',
+    component:TeamsComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'team',
+    component:TeamComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'team/edit/:id',
+    component:TeamComponent,
+    canActivate:[AuthGuard]
+  },
+  {
     path: 'gpstracking',
     component: GpstrackingComponent,
     canActivate:[AuthGuard]
@@ -124,7 +141,7 @@ const routes: Routes = [{
   component:CompanyinfoComponent
 },
 {
-  path: 'privacy/:name',
+  path: 'viewprivacy/privacy/:name',
   component:PrivacyViewComponent
 },
 {

@@ -1,0 +1,45 @@
+<div class="jumbotron">
+    <h1 class="display-4 text-center">Team</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="service.formTeam" autocomplete="off" (submit)="onSubmit()">
+                <div class="form-group required">
+                    <label>TeamName</label>
+                    <input class="form-control" formControlName="TeamName" placeholder="Team name">
+                    <label class="text-danger"
+                        *ngIf="service.formTeam.get('TeamName').touched && service.formTeam.get('TeamName').errors?.required">This
+                        field is mandatory.</label>
+                </div>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <th>User</th>
+                        <th>
+                            <a class="btn btn-sm btn-success text-white" (click)="AddOrEditTeammember(null)">Add Item</a>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="service.teamMembers.length==0" [class.text-danger]="service.teamMembers.length==0">
+                            <td class="font-italic text-center" colspan="5">
+                                No Team Member
+                            </td>
+                        </tr>
+
+                        <tr *ngFor="let item of service.teamMembers;let i=index;">
+                            <td>{{item.FullName}}</td>
+                            <td>
+                                <mat-icon (click)="AddOrEditTeammember(i)">edit</mat-icon>
+                                <mat-icon (click)="onDeleteTeammember(item.TeamMemberID,i)">delete_forever</mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark" [disabled]="!service.formTeam.valid">Submit</button>
+                    <a class="btn btn-outline-dark ml-1" routerLink="/teams"><i class="fa fa-table"></i> View Team</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

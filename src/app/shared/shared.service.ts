@@ -16,7 +16,6 @@ export class SharedService {
   }
 
   putDataWithoutKey(formdata,url:string) {
-    console.log(formdata);
     return this.http.put(environment.apiURL + '/' + url ,formdata).toPromise();
   }
 
