@@ -1,0 +1,76 @@
+<div class="jumbotron">
+    <h1 class="text-center">Root Menu Register</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <form [formGroup]="service.formRoot" autocomplete="off" (submit)="onSubmit()">
+                <div class="form-group">
+                    <input hidden class="form-control" formControlName="MenuId">
+                </div>
+                <div class="form-group required">
+                    <label>RootMenuId</label>
+                    <input class="form-control" formControlName="RootMenuId">
+                    <label class="text-danger"
+                        *ngIf="service.formRoot.get('RootMenuId').touched && service.formRoot.get('RootMenuId').errors?.required">This
+                        field is mandatory.</label>
+                </div>
+                <div class="form-group required">
+                    <label>Icon</label>
+                    <input class="form-control" formControlName="Icon">
+                    <label class="text-danger"
+                        *ngIf="service.formRoot.get('Icon').touched && service.formRoot.get('Icon').errors?.required">This
+                        field is mandatory.</label>
+                </div>
+                <div class="form-group required">
+                    <label>Label</label>
+                    <input class="form-control" formControlName="Label">
+                    <label class="text-danger"
+                        *ngIf="service.formRoot.get('Label').touched && service.formRoot.get('Label').errors?.required">This
+                        field is mandatory.</label>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-lg btn-block"
+                            [disabled]="!service.formRoot.valid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <div class="mat-elevation-z8">
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                    </mat-form-field>
+                </div>
+                <table class="table table-hover" mat-table [dataSource]="service.menurootList" matSort>
+                    <ng-container matColumnDef="RootMenuId">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> RootMenuId </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)"> {{element.RootMenuId}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Icon">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Icon </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)"> {{element.Icon}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Label">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Label </th>
+                        <td mat-cell *matCellDef="let element" (click)="openForEdit(element)"> {{element.Label}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Delete">
+                        <th mat-header-cell *matHeaderCellDef>
+
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <i class="fa fa-trash-alt fa-lg text-danger" (click)="onMenusDelete(element.MenuId)"></i>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[25, 100]"></mat-paginator>
+            </div>
+
+        </div>
+    </div>
+</div>

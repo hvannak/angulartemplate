@@ -24,6 +24,9 @@ import { SaleorderComponent } from './modules/saleorders/saleorder/saleorder.com
 import { GpstrackingComponent } from './modules/gpstracking/gpstracking.component';
 import { TeamsComponent } from './modules/teams/teams.component';
 import { TeamComponent } from './modules/teams/team/team.component';
+import { MenuRootComponent } from './modules/menus/menu-root/menu-root.component';
+import { MenuAppComponent } from './modules/menus/menu-app/menu-app.component';
+import { MenuUserComponent } from './modules/menus/menu-user/menu-user.component';
 
 
 const routes: Routes = [{
@@ -128,6 +131,21 @@ const routes: Routes = [{
   {
     path: 'gpstracking',
     component: GpstrackingComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'menuroot',
+    component: MenuRootComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'menuapp',
+    component: MenuAppComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'menuuser',
+    component: MenuUserComponent,
     canActivate:[AuthGuard]
   },
   {

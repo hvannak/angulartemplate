@@ -1,0 +1,43 @@
+.example-container {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    height: 100hv;
+  }
+  
+  .example-sidenav {
+    width: 450px;
+    padding: 1px;
+  }
+  
+  mat-button-toggle-group {
+    margin-left: 20px;
+  }
+
+  .jumbotron {
+    padding-top: 3px;
+}
+
+.mat-header-cell {
+    border-bottom: 1px;
+    vertical-align: middle;
+}
+
+.mat-cell {
+    vertical-align: middle;
+}
+
+.table {
+    margin-bottom: 0.2rem;
+}
+
+.mat-elevation-z8 {
+    border: 1px solid;
+    box-shadow: 3px 5px
+}
+
+.mat-icon {
+    cursor:pointer
+}
+
+.mat-header-row {
+    display: none;
+}

@@ -57,16 +57,20 @@
     <mat-divider></mat-divider>
     <mat-expansion-panel>
         <mat-expansion-panel-header><mat-icon>pan_tool</mat-icon>
-            Tools
+            Menus
         </mat-expansion-panel-header>
         <mat-divider></mat-divider>
         <mat-list dense>
             <mat-list-item>
-                <a mat-list-item routerLinkActive="list-item-active"><mat-icon>import_contacts</mat-icon>Contacts</a>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="/menuroot"><mat-icon>import_contacts</mat-icon>Root Menu</a>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>
-                <a mat-list-item routerLinkActive="list-item-active"><mat-icon>contact_phone</mat-icon>Leads</a>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="/menuapp"><mat-icon>contact_phone</mat-icon>App Menu</a>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <a mat-list-item routerLinkActive="list-item-active" routerLink="/menuuser"><mat-icon>bookmarks</mat-icon>User Menu</a>
             </mat-list-item>
         </mat-list>       
     </mat-expansion-panel>

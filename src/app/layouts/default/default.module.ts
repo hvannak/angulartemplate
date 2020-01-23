@@ -38,6 +38,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { TeamsComponent } from 'src/app/modules/teams/teams.component';
 import { TeamMembersComponent } from 'src/app/modules/teams/team-members/team-members.component';
 import { TeamComponent } from 'src/app/modules/teams/team/team.component';
+import { MenuRootComponent } from 'src/app/modules/menus/menu-root/menu-root.component';
+import { MenuAppComponent } from 'src/app/modules/menus/menu-app/menu-app.component';
+import { MenuUserComponent } from 'src/app/modules/menus/menu-user/menu-user.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,10 @@ import { TeamComponent } from 'src/app/modules/teams/team/team.component';
     GpsmanualComponent,
     TeamsComponent,
     TeamComponent,
-    TeamMembersComponent
+    TeamMembersComponent,
+    MenuRootComponent,
+    MenuAppComponent,
+    MenuUserComponent
   ],
   imports: [
     CommonModule,
