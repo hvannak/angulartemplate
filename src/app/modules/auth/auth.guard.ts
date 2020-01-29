@@ -13,16 +13,15 @@ export class AuthGuard implements CanActivate {
   canActivate(
       next: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): boolean {
-        console.log(state.url);
       if (localStorage.getItem('token') != null){
         if(state.url == '/login') {
           this.router.navigate(['/']);
           return false;
         }
-        return true;
+        return this.validateMenuExisting(state.url);
       }
       else {
-          if(state.url == '/login' || state.url == '/register'){
+          if(state.url == '/login'){
             return true;
           }
           else {
@@ -30,6 +29,30 @@ export class AuthGuard implements CanActivate {
             return false;
           }
         }
+    }
+
+    validateMenuExisting(url:string):boolean{
+      let strmenu = localStorage.getItem('menus');
+        let menuApplist: any[];
+        menuApplist = JSON.parse(strmenu);
+        let value = url.split('/');
+        let found = -1;
+        let status:boolean = true;
+        if(value[1] != ""){
+          menuApplist.forEach(element => {
+            let index = element.applicationMenus.findIndex(x=>x.RouterLink.includes(value[1]));
+            if(found == -1){
+              if(index >= 0) {
+                found = index;
+                status = true;
+              }
+              else {
+                status = false;
+              }
+            }
+          });
+        }
+        return status;
     }
   
 }

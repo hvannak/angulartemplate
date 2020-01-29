@@ -100,8 +100,12 @@ export class MenuService {
 
   //===============Usermenu
   getUserMenurootList() {
-    return this.shared.getAllData('/ApplicationUserMenus');
+    return this.shared.getAllData('/ApplicationUserMenus/Root');
   }
+
+  // getUserMenurootList() {
+  //   return this.shared.getAllData('/ApplicationUserMenus');
+  // }
 
   
   postUserMenuValidate(url:string){
