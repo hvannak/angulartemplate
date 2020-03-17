@@ -144,6 +144,10 @@ export class UserService {
     return this.shared.getAllData('/ApplicationUser');
   }
 
+  getUsersByFullname(name:string){
+    return this.shared.getDataById('/ApplicationUser/Fullname',name);
+  }
+
   deleteUser(id:string){
     return this.shared.deleteData('/Access/' , id);
   }

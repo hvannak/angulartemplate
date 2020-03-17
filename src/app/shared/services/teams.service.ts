@@ -29,6 +29,10 @@ export class TeamsService {
     return this.shared.getAllData("/Teams");
   }
 
+  getSelectTeam(){
+    return this.shared.getAllData("/Teams/SelectTeam");
+  }
+
   getTeamByID(teamId){
     return this.shared.getDataById("Teams", teamId);
   }

@@ -10,9 +10,11 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class TeamMembersComponent implements OnInit {
 
-  userList;
+  userList:any[];
   constructor(public service:TeamsService,private serviceUser:UserService,@Inject(MAT_DIALOG_DATA) public data,
-  public dialogRef: MatDialogRef<TeamMembersComponent>) { }
+  public dialogRef: MatDialogRef<TeamMembersComponent>) {
+    this.userList =[];
+   }
 
   ngOnInit() {
     this.serviceUser.getUsers().then((res:any) => {
@@ -43,9 +45,21 @@ export class TeamMembersComponent implements OnInit {
     });
   }
 
+  onSearchUser(){
+    var data = document.getElementById('fname') as HTMLInputElement; 
+    if(data.value != ''){
+      this.serviceUser.getUsersByFullname(data.value).then((res:any) => {
+        this.userList = res;
+        console.log(res);
+      })
+    }
+  }
+
   onSubmit(){
     if(this.service.formTeamMember.value.TeamMemberID != 0){
-      let index = this.service.teamMembers.findIndex(x=>x.TeamMemberID == this.data.id);
+      let index = this.data.index;
+
+      console.log(this.service.formTeamMember.value);
       this.service.teamMembers[index] = this.service.formTeamMember.value;
     }
     else{

@@ -50,7 +50,7 @@ export class GpstrackingComponent implements OnInit {
   }
 
   getTeam(){
-    this.serviceTeam.getTeam().then((res:any) => {
+    this.serviceTeam.getSelectTeam().then((res:any) => {
       this.teamList = res;
     });
   }
